@@ -1,0 +1,1702 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{sectsty}
+\usepackage[parfill]{parskip}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+	language=Python,
+	aboveskip=1mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
+
+\sectionfont{\fontsize{12}{12}\selectfont}
+
+\begin{document}
+Nama	: Muhammad Nanda Fahriza \\
+NPM		: 1194057 \\
+Kelas	: D4TI-3B \\
+
+\section{Menambah key baru pada dictionary}
+\begin{lstlisting}
+	d = {'key': 'value'}
+	print(d) # {'key': 'value'}
+	
+	d['mynewkey'] = 'mynewvalue'
+	
+	print(d) # {'key': 'value',
+	'mynewkey': 'mynewvalue'}
+\end{lstlisting}
+
+\section{Cara memilih item secara acak dari daftar}
+\begin{lstlisting}
+	import random
+		
+	foo = ['battery', 'correct', 'horse', 'staple']
+	secure_random = random.SystemRandom()
+	print(secure_random.choice(foo))
+\end{lstlisting}
+
+\section{Mengimpor file dari folder berbeda}
+\begin{lstlisting}
+	import os, sys
+		
+	from os.path import dirname, join, abspath
+	sys.path.insert(0, abspath(join(dirname(__file__), '..')))
+	
+	from root_folder import file_name
+\end{lstlisting}
+
+\section{Membaca JSON memiliki banyak items}
+\begin{lstlisting}
+	data JSON dari API jsonplaceholder dengan endpoint URL: https://jsonplaceholder.typicode.com/posts
+	
+	Buatlah program baru dengan nama list_artikel.py, kemudian isi dengan kode berikut:
+	
+	import json
+	from urllib import request
+	
+	url = "https://jsonplaceholder.typicode.com/posts"
+	
+	#lakukan http request
+	response = request.urlopen(url)
+	# parsing data json
+	data = json.loads(response.read())
+	#gunakan perulangan untuk menampilkan data
+	for i in range(len(data)):
+	print(f"{i}. {data[i]['title']}")
+\end{lstlisting}
+
+\section{Cara menampilkan Input dari Keyboard}
+\begin{lstlisting}
+	Python sudah menyediakan fungsi input() dan raw_input() untuk mengambil inputan dari keyboard.
+	
+	Cara pakainya:
+	
+	nama_varabel = input("Sebuah Teks")
+	
+	# Mengambil input
+	nama = raw_input("Siapa nama kamu: ")
+	umur = input("Berapa umur kamu: ")
+	
+	# Menampilkan output
+	print "Hello",nama,"umur kamu adalah",umur,"tahun"
+\end{lstlisting}
+
+\section{Cara menampilkan output}
+\begin{lstlisting}
+	nama = "Muhammad Nanda Fahriza"
+	print "Hello",nama
+\end{lstlisting}
+
+\section{Menggunakan string Formatting}
+\begin{lstlisting}
+	nama = raw_input("Inputkan nama: ")
+	umur = input("Inputkan umur: ")
+	tinggi = input("Inputkan tinggi badan: ")
+	
+	print "Hello %s, saat ini usiamu %d tahun dan tinggi badanmu %f cm" % (nama, umur, tinggi)
+\end{lstlisting}
+
+\section{Menggunakan Perulangan for}
+\begin{lstlisting}
+	item = ['kopi','nasi','teh','jeruk']
+	
+	for isi in item:
+	print(isi)
+\end{lstlisting}
+
+\section{Menggunakan Perulangan while}
+\begin{lstlisting}
+	jawab = 'ya'
+	hitung = 0
+	
+	while(jawab == 'ya'):
+	hitung += 1
+	jawab = input("Ulang lagi tidak? ")
+	
+	print(f"Total perulagan: {hitung}")
+\end{lstlisting}
+
+\section{Cara pakai operator relasi sama dengan}
+\begin{lstlisting}
+	lulus = raw_input("Apakah kamu lulus? [ya/tidak]: ")
+	
+	if lulus == "tidak":
+	print("Kamu harus ikut ujian")
+\end{lstlisting}
+
+\section{Penggunaan If/Else}
+\begin{lstlisting}
+	umur = input("Berapa umur kamu: ")
+	
+	if umur >= 18:
+	print("Kamu boleh membuat SIM")
+	else:
+	print("Kamu belum boleh membuat SIM")
+\end{lstlisting}
+
+\section{Membuat Program Dengan list}
+\begin{lstlisting}
+	# Membuat list kosong untuk menampung hobi
+	hobi = []
+	stop = False
+	i = 0
+	
+	# Mengisi hobi
+	while(not stop):
+	hobi_baru = raw_input("Inputkan hobi yang ke-{}: ".format(i))
+	hobi.append(hobi_baru)
+	
+	# Increment i
+	i += 1
+	
+	tanya = raw_input("Mau isi lagi? (y/t): ")
+	if(tanya == "t"): 
+	stop = True
+	
+	# Cetak Semua Hobi
+	print "=" * 10 
+	print "Kamu memiliki {} hobi".format(len(hobi))
+	for hb in hobi:
+	print "- {}".format(hb)
+\end{lstlisting}
+
+\section{Pengambilan panjang Tuple}
+\begin{lstlisting}
+	# Membuat Tuple
+	hari = ('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum\'at', 'Sabtu', 'Minggu')
+	
+	# Mengambil panjang tuple hari
+	print("Jumlah hari: %d" % len(hari))
+\end{lstlisting}
+
+\section{Mengakses nilai ietm dari dictionary}
+\begin{lstlisting}
+	# Membuat Dictionary
+	mahasiswa = {
+		"nama": "Muhammad Nanda",
+		"umur": 22,
+		"hobi": ["coding", "membaca", "belajar"],
+		"menikah": False,
+		"sosmed": {
+			"facebook": "muhammadnandafahriza",
+			"twitter": "@nandafahriza"
+		} 
+	}
+	
+	# Mengakses isi dictionary
+	print("Nama saya adalah %s" % mahasiswa["nama"])
+	print("Twitter: %s" % mahasiswa["sosmed"]["twitter"])
+\end{lstlisting}
+
+\section{Membuat fungsi mengembalikan nilai}
+\begin{lstlisting}
+	def luas_persegi(sisi):
+	luas = sisi * sisi
+	return luas
+	
+	# pemanggilan fungsi
+	print "Luas persegi: %d" % luas_persegi(6)
+\end{lstlisting}
+
+\section{Cara menggunakan lambda expression}
+\begin{lstlisting}
+	greeting = lambda name: print(f"Hello, {name}") 
+\end{lstlisting}
+
+\section{Penggunaan dari *args dan **kwargs}
+\begin{lstlisting}
+	# membuat fungsi dengan parameter *args
+	def kirim_sms(*nomer):
+	print nomer
+	
+	# membuat fungsi dengan parameter **kwargs
+	def tulis_sms(**isi):
+	print isi
+	
+	# Pemanggilan fungsi *args
+	kirim_sms(123, 888, 4444)
+	
+	# pemanggilan fungsi **kwargs
+	tulis_sms(tujuan=123, pesan="apa kabar")
+\end{lstlisting}
+
+\section{Parsing XML di Python}
+\begin{lstlisting}
+	import xml.dom.minidom as minidom
+	
+	def main():
+	# gunakan fungsi parse() untuk me-load xml ke memori 
+	# dan melakukan parsing
+	doc = minidom.parse("mahasiswa.xml")
+	
+	# Cetak isi doc dan tag pertamanya
+	print doc.nodeName
+	print doc.firstChild.tagName
+	
+	
+	if __name__ == "__main__":
+	main()
+	
+\end{lstlisting}
+
+\section{Cara baca dan Parse file CSV di Python}
+\begin{lstlisting}
+	import csv
+	
+	with open('contacts.csv') as csv_file:
+	csv_reader = csv.reader(csv_file, delimiter=",")
+	print(csv_reader)
+	for row in csv_reader:
+	print(row)
+\end{lstlisting}
+
+\section{ Menulis data dictionary ke CSV}
+\begin{lstlisting}
+	import csv
+	
+	with open('contacts.csv', mode='a') as csv_file:
+	# menentukan label
+	fieldnames = ['NO', 'NAMA', 'TELEPON']
+	
+	# membuat objek writer
+	writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+	
+	# menulis baris ke file CSV
+	writer.writeheader()
+	writer.writerow({'NO': '10', 'NAMA': 'Nanda', 'TELEPON': '02109999'})
+	writer.writerow({'NO': '11', 'NAMA': 'Fahriza', 'TELEPON': '02148488888'})
+	
+	print("Writing Done!")
+\end{lstlisting}
+
+\section{Membuat fungsi lihat data}
+\begin{lstlisting}
+	def show_contact():
+	clear_screen()
+	contacts = []
+	with open(csv_filename) as csv_file:
+	csv_reader = csv.reader(csv_file, delimiter=",")
+	for row in csv_reader:
+	contacts.append(row)
+	
+	if (len(contacts) > 0):
+	labels = contacts.pop(0)
+	print(f"{labels[0]} \t {labels[1]} \t\t {labels[2]}")
+	print("-"*34)
+	for data in contacts:
+	print(f'{data[0]} \t {data[1]} \t {data[2]}')
+	else:
+	print("Tidak ada data!")
+	back_to_menu()
+	
+\end{lstlisting}
+
+\section{Menggunakan fungsi create}
+\begin{lstlisting}
+	def create_contact():
+	clear_screen()
+	with open(csv_filename, mode='a') as csv_file:
+	fieldnames = ['NO', 'NAMA', 'TELEPON']
+	writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+	
+	no = input("No urut: ")
+	nama = input("Nama lengkap: ")
+	telepon = input("No. Telepon: ")
+	
+	writer.writerow({'NO': no, 'NAMA': nama, 'TELEPON': telepon})    
+	print("Berhasil disimpan!")
+	
+	back_to_menu()
+\end{lstlisting}
+
+\section{Membuat fungsi search}
+\begin{lstlisting}
+	def search_contact():
+	clear_screen()
+	contacts = []
+	
+	with open(csv_filename, mode="r") as csv_file:
+	csv_reader = csv.DictReader(csv_file)
+	for row in csv_reader:
+	contacts.append(row)
+	
+	no = input("Cari berdasrakan nomer urut> ")
+	
+	data_found = []
+	
+	# mencari contact
+	indeks = 0
+	for data in contacts:
+	if (data['NO'] == no):
+	data_found = contacts[indeks]
+	
+	indeks = indeks + 1
+	
+	if len(data_found) > 0:
+	print("DATA DITEMUKAN: ")
+	print(f"Nama: {data_found['NAMA']}")
+	print(f"Telepon: {data_found['TELEPON']}")
+	else:
+	print("Tidak ada data ditemukan")
+	back_to_menu()
+\end{lstlisting}
+
+\section{Membuat fungsi edit}
+\begin{lstlisting}
+	def edit_contact():
+	clear_screen()
+	contacts = []
+	
+	with open(csv_filename, mode="r") as csv_file:
+	csv_reader = csv.DictReader(csv_file)
+	for row in csv_reader:
+	contacts.append(row)
+	
+	print("NO \t NAMA \t\t TELEPON")
+	print("-" * 32)
+	
+	for data in contacts:
+	print(f"{data['NO']} \t {data['NAMA']} \t {data['TELEPON']}")
+	
+	print("-----------------------")
+	no = input("Pilih nomer kontak> ")
+	nama = input("nama baru: ")
+	telepon = input("nomer telepon baru: ")
+	
+	# mencari contact dan mengubah datanya
+	# dengan data yang baru
+	indeks = 0
+	for data in contacts:
+	if (data['NO'] == no):
+	contacts[indeks]['NAMA'] = nama
+	contacts[indeks]['TELEPON'] = telepon
+	indeks = indeks + 1
+	
+	# Menulis data baru ke file CSV (tulis ulang)
+	with open(csv_filename, mode="w") as csv_file:
+	fieldnames = ['NO', 'NAMA', 'TELEPON']
+	writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+	writer.writeheader()
+	for new_data in contacts:
+	writer.writerow({'NO': new_data['NO'], 'NAMA': new_data['NAMA'], 'TELEPON': new_data['TELEPON']}) 
+	
+	back_to_menu()
+\end{lstlisting}
+
+\section{Menggunakan fungsi delete}
+\begin{lstlisting}
+	def delete_contact():
+	clear_screen()
+	contacts = []
+	
+	with open(csv_filename, mode="r") as csv_file:
+	csv_reader = csv.DictReader(csv_file)
+	for row in csv_reader:
+	contacts.append(row)
+	
+	print("NO \t NAMA \t\t TELEPON")
+	print("-" * 32)
+	
+	for data in contacts:
+	print(f"{data['NO']} \t {data['NAMA']} \t {data['TELEPON']}")
+	
+	print("-----------------------")
+	no = input("Hapus nomer> ")
+	
+	# mencari contact dan mengubah datanya
+	# dengan data yang baru
+	indeks = 0
+	for data in contacts:
+	if (data['NO'] == no):
+	contacts.remove(contacts[indeks])
+	indeks = indeks + 1
+	
+	# Menulis data baru ke file CSV (tulis ulang)
+	with open(csv_filename, mode="w") as csv_file:
+	fieldnames = ['NO', 'NAMA', 'TELEPON']
+	writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+	writer.writeheader()
+	for new_data in contacts:
+	writer.writerow({'NO': new_data['NO'], 'NAMA': new_data['NAMA'], 'TELEPON': new_data['TELEPON']}) 
+	
+	print("Data sudah terhapus")
+	back_to_menu()
+\end{lstlisting}
+
+\section{Menggunakan main loop}
+\begin{lstlisting}
+	if __name__ == "__main__":
+	while True:
+	show_menu()
+\end{lstlisting}
+
+\section{Menangani eksepsi}
+\begin{lstlisting}
+	# import modul sys untuk memperoleh jenis eksepsi
+	import sys
+	
+	lists = ['a', 0, 4]
+	for each in lists:
+	try:
+	print("Masukan:", each)
+	r = 1/int(each)
+	break
+	except:
+	print("Upps!", sys.exc_info()[0], " terjadi.")
+	print("Masukan berikutnya.")
+	print()
+	print("Kebalikan dari ", each, " =", r)
+\end{lstlisting}
+
+	\section {UnicodeEncodeError: 'ascii' codec can't encode character u'\textbackslash xa0' in position 20: ordinal not in range(128)}
+Pada dasarnya, berhenti menggunakan str untuk mengonversi dari unicode ke teks/byte yang diencode. \\
+Sebagai gantinya, gunakan .encode() dengan benar untuk mengencode string:
+\begin{lstlisting}
+	p.agent_info = u' '.join((agent_contact, agent_telno)).encode('utf-8').strip()
+\end{lstlisting}
+
+\section {Memastikan apakah direktori ada di Python}
+\begin{lstlisting}
+	>>> import os
+	>>> os.path.isdir('new_folder')
+	True
+	>>> os.path.exists(os.path.join(os.getcwd(), 'new_folder', 'file.txt'))
+	False
+\end{lstlisting}
+
+\section {Cara merujuk ke objek null pada Python}
+\begin{lstlisting}
+	if foo is None:
+\end{lstlisting}
+
+\section {Cara cek nilai NaN pada Python}
+\begin{lstlisting}
+	>>> import math
+	>>> x = float('nan')
+	>>> math.isnan(x)
+	True
+\end{lstlisting}
+
+\section {Menghapus duplikasi pada list}
+\begin{lstlisting}
+	>>> t = [1, 2, 3, 1, 2, 5, 6, 7, 8]
+	>>> t
+	[1, 2, 3, 1, 2, 5, 6, 7, 8]
+	>>> list(set(t))
+	[1, 2, 3, 5, 6, 7, 8]
+	>>> s = [1, 2, 3]
+	>>> list(set(t) - set(s))
+	[8, 5, 6, 7]
+\end{lstlisting}
+
+\section {Sort dictionary berdasarkan key}
+\begin{lstlisting}
+	In [1]: import collections
+	
+	In [2]: d = {2:3, 1:89, 4:5, 3:0}
+	
+	In [3]: od = collections.OrderedDict(sorted(d.items()))
+	
+	In [4]: od
+	Out[4]: OrderedDict([(1, 89), (2, 3), (3, 0), (4, 5)])
+\end{lstlisting}
+
+\section {Melakukan Reverse pada list}
+\begin{lstlisting}
+	array=[0,10,20,40]
+	for i in reversed(array):
+	print(i)
+\end{lstlisting}
+
+\section {Cara mendapatkan nilai ASCII dari suatu karakter}
+\begin{lstlisting}
+	>>> ord('a')
+	97
+	>>> chr(97)
+	'a'
+	>>> chr(ord('a') + 3)
+	'd'
+	>>>
+\end{lstlisting}
+
+\section {Melakukan pengecekan ketersediaan variabel}
+Untuk memeriksa keberadaan variabel lokal:
+\begin{lstlisting}
+	if 'myVar' in locals():
+	# myVar exists.
+\end{lstlisting}
+Untuk memeriksa keberadaan variabel global:
+\begin{lstlisting}
+	if 'myVar' in globals():
+	# myVar exists.
+\end{lstlisting}
+Untuk memeriksa apakah suatu objek memiliki atribut:
+\begin{lstlisting}
+	if hasattr(obj, 'attr_name'):
+	# obj.attr_name exists.
+\end{lstlisting}
+
+\section {Ekstrak nama file dari path, apa pun format os/pathnya}
+\begin{lstlisting}
+	import os
+	print(os.path.basename(your_path))
+\end{lstlisting}
+
+\section {Mencetak exception dengan Python?}
+\begin{lstlisting}
+	except Exception as e: print(e)
+\end{lstlisting}
+
+\section {Cara mendapatkan waktu saat ini dengan Python}
+\begin{lstlisting}
+	>>> import datetime
+	>>> datetime.datetime.now()
+	datetime.datetime(2009, 1, 6, 15, 8, 24, 78915)
+	
+	>>> print(datetime.datetime.now())
+	2009-01-06 15:08:24.789150
+\end{lstlisting}
+
+\section {Membuat daftar semua file direktori}
+\begin{lstlisting}
+	from os import listdir
+	from os.path import isfile, join
+	onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+\end{lstlisting}
+
+\section {Sort dictionary berdasarkan nilai}
+\begin{lstlisting}
+	>>> x = {1: 2, 3: 4, 4: 3, 2: 1, 0: 0}
+	>>> {k: v for k, v in sorted(x.items(), key=lambda item: item[1])}
+	{0: 0, 2: 1, 1: 2, 4: 3, 3: 4}
+\end{lstlisting}
+atau
+\begin{lstlisting}
+	>>> dict(sorted(x.items(), key=lambda item: item[1]))
+	{0: 0, 2: 1, 1: 2, 4: 3, 3: 4}
+\end{lstlisting}
+
+\section {Menambah key baru pada dictionary}
+\begin{lstlisting}
+	d = {'key': 'value'}
+	print(d)  # {'key': 'value'}
+	
+	d['mynewkey'] = 'mynewvalue'
+	
+	print(d)  # {'key': 'value', 'mynewkey': 'mynewvalue'}
+\end{lstlisting}
+
+\section {Menggabungkan dua buah list}
+\begin{lstlisting}
+	listone = [1, 2, 3]
+	listtwo = [4, 5, 6]
+	
+	joinedlist = listone + listtwo
+\end{lstlisting}
+
+\section {Melakukan pengecekan list kosong}
+\begin{lstlisting}
+	if not a:
+	print("List is empty")
+\end{lstlisting}
+
+\section {Mendefinisikan array dua dimensi}
+\begin{lstlisting}
+	# Creates a list containing 5 lists, each of 8 items, all set to 0
+	w, h = 8, 5
+	Matrix = [[0 for x in range(w)] for y in range(h)] 
+\end{lstlisting}
+coba tambahkan nilai seperti berikut
+\begin{lstlisting}
+	Matrix[0][0] = 1
+	Matrix[6][0] = 3 # error! range... 
+	Matrix[0][6] = 3 # valid
+\end{lstlisting}
+
+\section {Convert date ke datetime pada python}
+\begin{lstlisting}
+	from datetime import date
+	from datetime import datetime
+	
+	dt = datetime.combine(date.today(), datetime.min.time())
+\end{lstlisting}
+
+\section {Cara mendapatkan hostname system}
+\begin{lstlisting}
+	import socket
+	print(socket.gethostname())
+\end{lstlisting}
+
+\section {Membuat list kosong dengan besaran yang ditentukan}
+\begin{lstlisting}
+	>>> l = [None] * 10
+	>>> l
+	[None, None, None, None, None, None, None, None, None, None]
+\end{lstlisting}
+
+\section{Menambah key baru pada dictionary}
+\begin{lstlisting}
+	d = {'key': 'value'}
+	print(d) # {'key': 'value'}
+	
+	d['mynewkey'] = 'mynewvalue'
+	
+	print(d) # {'key': 'value',
+		'mynewkey': 'mynewvalue'}
+\end{lstlisting}
+
+\section{Cara memilihi item secara acak dari daftar}
+\begin{lstlisting}
+	import random
+	
+	foo = ['battery', 'correct', 'horse', 'staple']
+	secure_random = random.SystemRandom()
+	print(secure_random.choice(foo))
+\end{lstlisting}
+
+\section{Mengimpor file dari folder berbeda}
+\begin{lstlisting}
+	import os, sys
+	
+	from os.path import dirname, join, abspath
+	sys.path.insert(0, abspath(join(dirname(__file__), '..')))
+	
+	from root_folder import file_name
+\end{lstlisting}
+
+\section{Membaca JSON yang memiliki banyak items}
+\begin{lstlisting}
+	data JSON dari API jsonplaceholder dengan endpoint URL: https://jsonplaceholder.typicode.com/posts
+	
+	Buatlah program baru dengan nama list_artikel.py, kemudian isi dengan kode berikut:
+	
+	import json
+	from urllib import request
+	
+	url = "https://jsonplaceholder.typicode.com/posts"
+	
+	# lakukan http request
+	response = request.urlopen(url)
+	
+	# parsing data json
+	data = json.loads(response.read())
+	
+	# gunakan perulangan untuk menampilkan data
+	for i in range(len(data)):
+	print(f"{i}. {data[i]['title']}")
+\end{lstlisting}
+
+\section{Cara menampilkan Input dari Keyboard}
+\begin{lstlisting}
+	Python sudah menyediakan fungsi input() dan raw_input() untuk mengambil inputan dari keyboard.
+	
+	Cara pakainya:
+	
+	nama_varabel = input("Sebuah Teks")
+	
+	# Mengambil input
+	nama = raw_input("Siapa nama kamu: ")
+	umur = input("Berapa umur kamu: ")
+	
+	# Menampilkan output
+	print "Hello",nama,"umur kamu adalah",umur,"tahun"
+\end{lstlisting}
+
+\section{Cara menampilkan output}
+\begin{lstlisting}
+	nama = "Muhammad Fahri Ramadhan"
+	print "Hello",nama
+\end{lstlisting}
+
+\section{Menggunakan string Formatting}
+\begin{lstlisting}
+	nama = raw_input("Inputkan nama: ")
+	umur = input("Inputkan umur: ")
+	tinggi = input("Inputkan tinggi badan: ")
+	
+	print "Hello %s, saat ini usiamu %d tahun dan tinggi badanmu %f cm" % (nama, umur, tinggi)
+\end{lstlisting}
+
+\section{Menggunakan Perulangan for}
+\begin{lstlisting}
+	item = ['kopi','nasi','teh','jeruk']
+	
+	for isi in item:
+	print(isi)
+\end{lstlisting}
+
+\section{Menggunakan Perulangan while}
+\begin{lstlisting}
+	jawab = 'ya'
+	hitung = 0
+	
+	while(jawab == 'ya'):
+	hitung += 1
+	jawab = input("Ulang lagi tidak? ")
+	
+	print(f"Total perulagan: {hitung}")
+\end{lstlisting}
+
+\section{Cara pakai operator relasi sama dengan}
+\begin{lstlisting}
+	lulus = raw_input("Apakah kamu lulus? [ya/tidak]: ")
+	
+	if lulus == "tidak":
+	print("Kamu harus ikut ujian")
+\end{lstlisting}
+
+\section{Penggunaan If/Else}
+\begin{lstlisting}
+	umur = input("Berapa umur kamu: ")
+	
+	if umur >= 18:
+	print("Kamu boleh membuat SIM")
+	else:
+	print("Kamu belum boleh membuat SIM")
+\end{lstlisting}
+
+\section{Membuat Program Dengan list}
+\begin{lstlisting}
+	# Membuat list kosong untuk menampung hobi
+	hobi = []
+	stop = False
+	i = 0
+	
+	# Mengisi hobi
+	while(not stop):
+	hobi_baru = raw_input("Inputkan hobi yang ke-{}: ".format(i))
+	hobi.append(hobi_baru)
+	
+	# Increment i
+	i += 1
+	
+	tanya = raw_input("Mau isi lagi? (y/t): ")
+	if(tanya == "t"): 
+	stop = True
+	
+	# Cetak Semua Hobi
+	print "=" * 10 
+	print "Kamu memiliki {} hobi".format(len(hobi))
+	for hb in hobi:
+	print "- {}".format(hb)
+\end{lstlisting}
+
+\section{Pengambilan panjang Tuple}
+\begin{lstlisting}
+	# Membuat Tuple
+	hari = ('Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum\'at', 'Sabtu', 'Minggu')
+	
+	# Mengambil panjang tuple hari
+	print("Jumlah hari: %d" % len(hari))
+\end{lstlisting}
+
+\section{Mengakses nilai item dari dictionary}
+\begin{lstlisting}
+	# Membuat Dictionary
+	mahasiswa = {
+		"nama": "Muhammad Fahri Ramadhan",
+		"umur": 22,
+		"hobi": ["coding", "membaca", "belajar"],
+		"menikah": False,
+		"sosmed": {
+			"facebook": "fahri-r",
+			"twitter": "@fahri_r"
+		} 
+	}
+	
+	# Mengakses isi dictionary
+	print("Nama saya adalah %s" % mahasiswa["nama"])
+	print("Twitter: %s" % mahasiswa["sosmed"]["twitter"])
+\end{lstlisting}
+
+\section{Membuat fungsi mengembalikan nilai}
+\begin{lstlisting}
+	def luas_persegi(sisi):
+	luas = sisi * sisi
+	return luas
+	
+	# pemanggilan fungsi
+	print "Luas persegi: %d" % luas_persegi(6)
+\end{lstlisting}
+
+\section{Cara menggunakan lambda expression}
+\begin{lstlisting}
+	greeting = lambda name: print(f"Hello, {name}") 
+\end{lstlisting}
+
+\section{Penggunaan dari *args dan **kwargs}
+\begin{lstlisting}
+	# membuat fungsi dengan parameter *args
+	def kirim_sms(*nomer):
+	print nomer
+	
+	# membuat fungsi dengan parameter **kwargs
+	def tulis_sms(**isi):
+	print isi
+	
+	# Pemanggilan fungsi *args
+	kirim_sms(123, 888, 4444)
+	
+	# pemanggilan fungsi **kwargs
+	tulis_sms(tujuan=123, pesan="apa kabar")
+\end{lstlisting}
+
+\section{Parsing XML di Python}
+\begin{lstlisting}
+	import xml.dom.minidom as minidom
+	
+	def main():
+	# gunakan fungsi parse() untuk me-load xml ke memori 
+	# dan melakukan parsing
+	doc = minidom.parse("mahasiswa.xml")
+	
+	# Cetak isi doc dan tag pertamanya
+	print doc.nodeName
+	print doc.firstChild.tagName
+	
+	
+	if __name__ == "__main__":
+	main()
+\end{lstlisting}
+
+\section{Cara baca dan Parse file CSV di Python}
+\begin{lstlisting}
+	import csv
+	
+	with open('contacts.csv') as csv_file:
+	csv_reader = csv.reader(csv_file, delimiter=",")
+	print(csv_reader)
+	for row in csv_reader:
+	print(row)
+\end{lstlisting}
+
+\section{ Menulis data dictionary ke CSV}
+\begin{lstlisting}
+	import csv
+	
+	with open('contacts.csv', mode='a') as csv_file:
+	# menentukan label
+	fieldnames = ['NO', 'NAMA', 'TELEPON']
+	
+	# membuat objek writer
+	writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+	
+	# menulis baris ke file CSV
+	writer.writeheader()
+	writer.writerow({'NO': '10', 'NAMA': 'Nanda', 'TELEPON': '02109999'})
+	writer.writerow({'NO': '11', 'NAMA': 'Fahriza', 'TELEPON': '02148488888'})
+	
+	print("Writing Done!")
+\end{lstlisting}
+
+\section{Membuat fungsi lihat data}
+\begin{lstlisting}
+	def show_contact():
+	clear_screen()
+	contacts = []
+	with open(csv_filename) as csv_file:
+	csv_reader = csv.reader(csv_file, delimiter=",")
+	for row in csv_reader:
+	contacts.append(row)
+	
+	if (len(contacts) > 0):
+	labels = contacts.pop(0)
+	print(f"{labels[0]} \t {labels[1]} \t\t {labels[2]}")
+	print("-"*34)
+	for data in contacts:
+	print(f'{data[0]} \t {data[1]} \t {data[2]}')
+	else:
+	print("Tidak ada data!")
+	back_to_menu()
+\end{lstlisting}
+
+\section{Menggunakan fungsi create}
+\begin{lstlisting}
+	def create_contact():
+	clear_screen()
+	with open(csv_filename, mode='a') as csv_file:
+	fieldnames = ['NO', 'NAMA', 'TELEPON']
+	writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+	
+	no = input("No urut: ")
+	nama = input("Nama lengkap: ")
+	telepon = input("No. Telepon: ")
+	
+	writer.writerow({'NO': no, 'NAMA': nama, 'TELEPON': telepon})    
+	print("Berhasil disimpan!")
+	
+	back_to_menu()
+\end{lstlisting}
+
+\section{Membuat fungsi search}
+\begin{lstlisting}
+	def search_contact():
+	clear_screen()
+	contacts = []
+	
+	with open(csv_filename, mode="r") as csv_file:
+	csv_reader = csv.DictReader(csv_file)
+	for row in csv_reader:
+	contacts.append(row)
+	
+	no = input("Cari berdasrakan nomer urut> ")
+	
+	data_found = []
+	
+	# mencari contact
+	indeks = 0
+	for data in contacts:
+	if (data['NO'] == no):
+	data_found = contacts[indeks]
+	
+	indeks = indeks + 1
+	
+	if len(data_found) > 0:
+	print("DATA DITEMUKAN: ")
+	print(f"Nama: {data_found['NAMA']}")
+	print(f"Telepon: {data_found['TELEPON']}")
+	else:
+	print("Tidak ada data ditemukan")
+	back_to_menu()
+\end{lstlisting}
+
+\section{Membuat fungsi edit}
+\begin{lstlisting}
+	def edit_contact():
+	clear_screen()
+	contacts = []
+	
+	with open(csv_filename, mode="r") as csv_file:
+	csv_reader = csv.DictReader(csv_file)
+	for row in csv_reader:
+	contacts.append(row)
+	
+	print("NO \t NAMA \t\t TELEPON")
+	print("-" * 32)
+	
+	for data in contacts:
+	print(f"{data['NO']} \t {data['NAMA']} \t {data['TELEPON']}")
+	
+	print("-----------------------")
+	no = input("Pilih nomer kontak> ")
+	nama = input("nama baru: ")
+	telepon = input("nomer telepon baru: ")
+	
+	# mencari contact dan mengubah datanya
+	# dengan data yang baru
+	indeks = 0
+	for data in contacts:
+	if (data['NO'] == no):
+	contacts[indeks]['NAMA'] = nama
+	contacts[indeks]['TELEPON'] = telepon
+	indeks = indeks + 1
+	
+	# Menulis data baru ke file CSV (tulis ulang)
+	with open(csv_filename, mode="w") as csv_file:
+	fieldnames = ['NO', 'NAMA', 'TELEPON']
+	writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+	writer.writeheader()
+	for new_data in contacts:
+	writer.writerow({'NO': new_data['NO'], 'NAMA': new_data['NAMA'], 'TELEPON': new_data['TELEPON']}) 
+	
+	back_to_menu()
+\end{lstlisting}
+
+\section{Menggunakan fungsi delete}
+\begin{lstlisting}
+	def delete_contact():
+	clear_screen()
+	contacts = []
+	
+	with open(csv_filename, mode="r") as csv_file:
+	csv_reader = csv.DictReader(csv_file)
+	for row in csv_reader:
+	contacts.append(row)
+	
+	print("NO \t NAMA \t\t TELEPON")
+	print("-" * 32)
+	
+	for data in contacts:
+	print(f"{data['NO']} \t {data['NAMA']} \t {data['TELEPON']}")
+	
+	print("-----------------------")
+	no = input("Hapus nomer> ")
+	
+	# mencari contact dan mengubah datanya
+	# dengan data yang baru
+	indeks = 0
+	for data in contacts:
+	if (data['NO'] == no):
+	contacts.remove(contacts[indeks])
+	indeks = indeks + 1
+	
+	# Menulis data baru ke file CSV (tulis ulang)
+	with open(csv_filename, mode="w") as csv_file:
+	fieldnames = ['NO', 'NAMA', 'TELEPON']
+	writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+	writer.writeheader()
+	for new_data in contacts:
+	writer.writerow({'NO': new_data['NO'], 'NAMA': new_data['NAMA'], 'TELEPON': new_data['TELEPON']}) 
+	
+	print("Data sudah terhapus")
+	back_to_menu()
+\end{lstlisting}
+
+\section{Menggunakan main loop}
+\begin{lstlisting}
+	if __name__ == "__main__":
+	while True:
+	show_menu()
+\end{lstlisting}
+
+\section{Menangani exception}
+\begin{lstlisting}
+	# import modul sys untuk memperoleh jenis eksepsi
+	import sys
+	
+	lists = ['a', 0, 4]
+	for each in lists:
+	try:
+	print("Masukan:", each)
+	r = 1/int(each)
+	break
+	except:
+	print("Upps!", sys.exc_info()[0], " terjadi.")
+	print("Masukan berikutnya.")
+	print()
+	print("Kebalikan dari ", each, " =", r)
+\end{lstlisting}
+
+\section {Cara menghitung tanggal dan waktu :}
+\begin{lstlisting}
+	from datetime import datetime
+	now = datetime.now()
+	mm = str(now.month)
+	dd = str(now.day)
+	yyyy = str(now.year)
+	hour = str(now.hour)
+	mi = str(now.minute)
+	ss = str(now.second)
+	print (mm + "/" + dd + "/" + yyyy + " " + hour + ":" + mi + ":" + ss)
+\end{lstlisting}
+
+\section {Cara menghitung 2 angka yang di inputkan :}
+\begin{lstlisting}
+	number1 = input("Angka Pertama: ")
+	number2 = input("\nANgka Kedua: ")
+	
+	sum = float(number1) + float(number2)
+	
+	print("Penjumlahan dari {0} dan {1} adalah {2}" .format(number1, number2, sum)) 
+\end{lstlisting}
+
+\section {Cara  menampilkan nama :}
+\begin{lstlisting}
+	# Python program showing
+	# a use of raw_input()
+	g = raw_input("Enter your name : ")
+	print g 
+\end{lstlisting}
+
+\section {Cara  menampilkan kalkulator :}
+\begin{lstlisting}
+	# Program make a simple calculator that can add, subtract, multiply and divide using functions
+	# This function adds two numbers
+	def add(x, y):
+	return x + y
+	# This function subtracts two numbers
+	def subtract(x, y):
+	return x - y
+	# This function multiplies two numbers
+	def multiply(x, y):
+	return x * y
+	# This function divides two numbers
+	def divide(x, y):
+	return x / y
+	print("Select operation.")
+	print("1.Add")
+	print("2.Subtract")
+	print("3.Multiply")
+	print("4.Divide")
+	# Take input from the user
+	choice = input("Enter choice(1/2/3/4):")
+	num1 = int(input("Enter first number: "))
+	num2 = int(input("Enter second number: "))
+	if choice == '1':
+	print(num1,"+",num2,"=", add(num1,num2))
+	elif choice == '2':
+	print(num1,"-",num2,"=", subtract(num1,num2))
+	elif choice == '3':
+	print(num1,"*",num2,"=", multiply(num1,num2))
+	elif choice == '4':
+	print(num1,"/",num2,"=", divide(num1,num2))
+	else:
+	print("Invalid input")
+\end{lstlisting}
+
+\section {Cara untuk bilangan Fibonacci : }
+\begin{lstlisting}
+	def Fibonacci(n):
+	if n<0:
+	print("Incorrect input")
+	# First Fibonacci number is 0
+	elif n==1:
+	return 0
+	# Second Fibonacci number is 1
+	elif n==2:
+	return 1
+	else:
+	return Fibonacci(n-1)+Fibonacci(n-2)
+	# Driver Program
+	print(Fibonacci(10)) 
+\end{lstlisting}
+
+\section {Cara untuk sorting array :}
+\begin{lstlisting}
+	def insertionSort(arr):
+	# Traverse through 1 to len(arr)
+	for i in range(1, len(arr)):
+	key = arr[i]
+	# Move elements of arr[0..i-1], that are
+	# greater than key, to one position ahead
+	# of their current position
+	j = i-1
+	while j >=0 and key < arr[j] :
+	arr[j+1] = arr[j]
+	j -= 1
+	arr[j+1] = key
+	
+	# Driver code to test above
+	arr = [12, 11, 13, 8, 4]
+	insertionSort(arr)
+	print ("Sorted array is:")
+	for i in range(len(arr)):
+	print ("%d" %arr[i]) 
+\end{lstlisting}
+
+\section {Cara untuk sorting array 2:}
+\begin{lstlisting}
+	test_string = "Hello World My Name Is : Joo"
+	# printing original string
+	print ("The original string is : " + test_string)
+	# using split()
+	# to count words in string
+	res = len(test_string.split())
+	# printing result
+	print ("The number of words in string are : " + str(res)) 
+\end{lstlisting}
+
+\section {Cara Sederhana Menghitung Volume Balok}
+\begin{lstlisting}
+	print ("PROGRAM PYTHON MENGHITUNG VOLUME BALOK")
+	p = float(input("Panjang = "))
+	l = float(input("Lebar   = "))
+	t = float(input("Tinggi  = "))
+	
+	v = p*l*t
+	
+	print ("Volume Balok = %0.2f" %v)
+\end{lstlisting}
+
+\section {Cara Menentukan Bilangan Ganjil Genap}
+\begin{lstlisting}
+	bil = int(input("Masukan Bilangan :"))
+	
+	if bil % 2 == 0:
+	print("%d Merupakan Bilangan Genap" % bil)
+	else:
+	print("%d Merupakan Bilangan Ganjil" % bil)
+\end{lstlisting}
+
+\section {Cara Menentukan Nilai Indeks Mahasiswa}
+\begin{lstlisting}
+	print("PROGRAM PYTHON MENENTUKAN NILAI INDEKS MAHASISWA")
+	tugas = float(input("\nMasukkan nilai Tugas: "))
+	uts = float(input("Masukkan nilai UTS: "))
+	uas = float(input("Masukkan nilai UAS: "))
+	
+	na =  (0.15 * uas) + (0.35 * uts) +  (0.50 * uas)
+	if na >= 80:
+	indeks = 'A'
+	elif na >= 70:
+	indeks = 'B'
+	elif na >= 55:
+	indeks = 'C'
+	elif na >= 40:
+	indeks = 'D'
+	else:
+	indeks = 'E'
+	
+	print("\nNilai Akhir  = %0.2f" % na)
+	print("Nilai Indeks = %c" % indeks)
+\end{lstlisting}
+
+\section {Cara Menentukan Bilangan Terkecil dan Terbesar}
+\begin{lstlisting}
+	print ("PROGRAM PYTHON MENGHITUNG NILAI TERKECIL & TERBESAR SERTA NILAI RATA-RATA")
+	n = int(input("\nMasukan Jumlah Bilangan = "))
+	bil = []
+	tot = 0
+	for x in range(n):
+	m=x+1
+	a = int(input("Bilangan ke %d = "%m))
+	bil.append(a)
+	tot += bil[x]
+	rata2 = tot / n
+	
+	print("\nBilangan Terkecil : %d" %min(bil))
+	print("Bilangan Terbesar : %d" %max(bil))
+	print("Nilai Rata-rata   : %0.2f" %rata2)
+\end{lstlisting}
+
+\section {Cara menggunakan Fungsi Rekursif}
+\begin{lstlisting}
+	def pangkat(x,y):
+	if y == 0:
+	return 1
+	else:
+	return x * pangkat(x,y-1)
+	
+	x = int(input("Masukan Nilai X : "))
+	y = int(input("Masukan Nilai Y : "))
+	
+	print("%d dipangkatkan %d = %d" % (x,y,pangkat(x,y)))
+\end{lstlisting}
+
+\section {perulangan while seperti for + range}
+\begin{lstlisting}
+	i = 1
+	
+	while i <= 5:
+	print(i)
+	i += 1
+\end{lstlisting}
+
+\section {Menjumlahkan bilangan}
+\begin{lstlisting}
+	jumlah = float(bil1) + float(bil2)
+\end{lstlisting}
+
+\section {perulangan while untuk list}
+\begin{lstlisting}
+	listKota = ['Jakarta', 'Surabaya', 'Depok', 'Bekasi', 'Solo', 'Jogjakarta', 'Semarang', 'Makassar']
+	
+	# bermain index
+	i = 0
+	while i < len(listKota):
+	print(listKota[i])
+	i += 1
+\end{lstlisting}
+
+\section {perulangan while dengan inputan}
+\begin{lstlisting}
+	a = int(input('Masukkan bilangan ganjil lebih dari 50: '))
+	
+	while a % 2 != 1 or a <= 50:
+	a = int(input('Salah, masukkan lagi: '))
+	
+	print('Benar')
+\end{lstlisting}
+
+\section {perulangan while dengan continue}
+\begin{lstlisting}
+	listKota = ['Jakarta', 'Surabaya', 'Depok', 'Bekasi', 'Solo', 'Jogjakarta', 'Semarang', 'Makassar']
+	
+	# skip jika i adalah bilangan genap
+	# dan i lebih dari 0
+	i = -1
+	while i < len(listKota):
+	i += 1
+	if i % 2 == 0 and i > 0:
+	print('skip')
+	continue
+	
+	# tidak dieksekusi ketika continue dipanggil
+	print(listKota[i])
+\end{lstlisting}
+
+\section {perulangan while dengan break}
+\begin{lstlisting}
+	listKota = [
+	'Jakarta', 'Surabaya', 'Depok', 'Bekasi', 'Solo',
+	'Jogjakarta', 'Semarang', 'Makassar'
+	]
+	
+	kotaYangDicari = input('Masukkan nama kota yang dicari: ')
+	
+	i = 0
+	while i < len(listKota):
+	if listKota[i].lower() == kotaYangDicari.lower():
+	print('Ketemu di index', i)
+	break
+	
+	print('Bukan', listKota[i])
+	i += 1
+	
+\end{lstlisting}
+
+\section {Menaikkan Exceptions}
+\begin{lstlisting}
+	# Raise an instance of the Exception class itself
+	
+	raise Exception('Ummm... something is wrong')
+	
+	# Raise an instance of the RuntimeError class
+	
+	raise RuntimeError('Ummm... something is wrong')
+	
+	# Raise a custom subclass of Exception that keeps the timestamp the exception was created
+	
+	from datetime import datetime
+	
+	class SuperError(Exception):
+	
+	def __init__(self, message):
+	
+	Exception.__init__(message)
+	
+	self.when = datetime.now()
+	
+	raise SuperError('Ummm... something is wrong')
+\end{lstlisting}
+
+\section {Menelan Exception}
+\begin{lstlisting}
+	import json
+	
+	import yaml
+	
+	def parse_file(filename):
+	
+	try:
+	
+	return json.load(open(filename))
+	
+	except json.JSONDecodeError
+	
+	return yaml.load(open(filename))
+\end{lstlisting}
+
+\section {Klausul Finally}
+\begin{lstlisting}
+	def fetch_some_data():
+	
+	db = open_db_connection()
+	
+	query(db)
+	
+	close_db_Connection(db)
+\end{lstlisting}
+
+\section {fungsi penjumlahan}
+\begin{lstlisting}
+	def add(x, y):
+	return x + y
+\end{lstlisting}
+
+\section {Logging}
+\begin{lstlisting}
+	import logging
+	
+	logger = logging.getLogger()
+	
+	def f():
+	
+	try:
+	
+	flaky_func()
+	
+	except Exception:
+	
+	logger.exception()
+	
+	raise
+\end{lstlisting}
+
+\section {fungsi perkalian}
+\begin{lstlisting}
+	def multiply(x, y):
+	return x * y
+\end{lstlisting}
+
+\section {fungsi pembagian}
+\begin{lstlisting}
+	def divide(x, y):
+	return x / y
+\end{lstlisting}
+
+\section {Error Logger}
+\begin{lstlisting}
+	def log_error(logger)
+	
+	def decorated(f):
+	
+	@functools.wraps(f)
+	
+	def wrapped(*args, **kwargs):
+	
+	try:
+	
+	return f(*args, **kwargs)
+	
+	except Exception as e:
+	
+	if logger:
+	
+	logger.exception(e)
+	
+	raise
+	
+	return wrapped
+	
+	return decorated
+\end{lstlisting}
+
+\section {Retrier}
+\begin{lstlisting}
+	import time
+	
+	import math
+	def retry(tries, delay=3, backoff=2):
+	
+	if backoff <= 1:
+	
+	raise ValueError("backoff must be greater than 1")
+	tries = math.floor(tries)
+	
+	if tries < 0:
+	
+	raise ValueError("tries must be 0 or greater")
+	if delay <= 0:
+	
+	raise ValueError("delay must be greater than 0")
+	def deco_retry(f):
+	
+	def f_retry(*args, **kwargs):
+	
+	mtries, mdelay = tries, delay # make mutable
+	rv = f(*args, **kwargs) # first attempt
+	
+	while mtries > 0:
+	
+	if rv is True: # Done on success
+	
+	return True
+	mtries -= 1      # consume an attempt
+	
+	time.sleep(mdelay) # wait...
+	
+	mdelay *= backoff  # make future wait longer
+	rv = f(*args, **kwargs) # Try again
+	return False # Ran out of tries :-(
+	return f_retry # true decorator -> decorated function
+	
+	return deco_retry  # @retry(arg[, ...]) -> true decorator
+\end{lstlisting}
+
+\section {Cara untuk mencetak semua permutasi}
+\begin{lstlisting}
+	from itertools import permutations
+	
+	# Mendapatkan semua permutasi dari [1, 2, 3]
+	perm = permutations([1, 2, 3])
+	
+	# Print semua permutasi
+	for i in perm:
+	print(i)
+\end{lstlisting}
+
+\section {Menggunakan pernyataan If else}
+\begin{lstlisting}
+	myDict = {1: 1, 2: 4, 3: 9}
+	print("The dictionary is:", myDict)
+	key = 4
+	if key in myDict.keys():
+	print(myDict[key])
+	else:
+	print("{} not a key of dictionary".format(key))
+\end{lstlisting}
+
+\section {Program Menentukan Nilai Akhir Semester}
+\begin{lstlisting}
+	def fungsi_total_nilai(var_harian, var_uts, var_uas) :
+	var_harian = int(var_harian) * 0.3
+	var_uts = int(var_uts) * 0.3
+	var_uas = int(var_uas) * 0.4
+	
+	var_total = var_harian + var_uts + var_uas
+	return var_total
+\end{lstlisting}
+
+\section {Mengubah string pada list ke int}
+\begin{lstlisting}
+	results = list(map(int, results))
+\end{lstlisting}
+
+\section {Unzipping files}
+\begin{lstlisting}
+	import zipfile
+	with zipfile.ZipFile(path_to_zip_file, 'r') as zip_ref:
+	zip_ref.extractall(directory_to_extract_to)
+\end{lstlisting}
+
+\section {Perbandingan string dengan case-sensitive}
+\begin{lstlisting}
+	string1 = 'Hello'
+	string2 = 'hello'
+	
+	if string1.casefold() == string2.casefold():
+	print("The strings are the same (case insensitive)")
+	else:
+	print("The strings are NOT the same (case insensitive)")
+\end{lstlisting}
+
+\section {Mendefinisikan infinite number}
+\begin{lstlisting}
+	import math
+	test = math.inf
+\end{lstlisting}
+
+\section {Mencari rata-rata pada sebuah list}
+\begin{lstlisting}
+	l = [15, 18, 2, 36, 12, 78, 5, 6, 9]
+	
+	import statistics
+	statistics.mean(l)
+\end{lstlisting}
+
+\section {Merename key pada dictionary}
+\begin{lstlisting}
+	mydict[k_new] = mydict.pop(k_old)
+\end{lstlisting}
+
+\section {Merename file}
+\begin{lstlisting}
+	import os
+	
+	os.rename('a.txt', 'b.kml')
+\end{lstlisting}
+
+\section {Mendapatkan nama script dengan python}
+\begin{lstlisting}
+	os.path.basename(__file__)
+\end{lstlisting}
+
+\section {Convert JSON string ke dict}
+\begin{lstlisting}
+	import json
+	
+	d = json.loads(j)
+	print d['glossary']['title']
+\end{lstlisting}
+
+\section {Mendapatkan nomor minggu}
+\begin{lstlisting}
+	>>> import datetime
+	>>> datetime.date(2010, 6, 16).isocalendar()[1]
+	24
+\end{lstlisting}
+
+\section {Date string ke date object}
+\begin{lstlisting}
+	>>> import datetime
+	>>> datetime.datetime.strptime('24052010', "%d%m%Y").date()
+	datetime.date(2010, 5, 24)
+\end{lstlisting}
+
+\section {Membuat MD5 Checksum dari file}
+\begin{lstlisting}
+	import hashlib
+	def md5(fname):
+	hash_md5 = hashlib.md5()
+	with open(fname, "rb") as f:
+	for chunk in iter(lambda: f.read(4096), b""):
+	hash_md5.update(chunk)
+	return hash_md5.hexdigest()
+\end{lstlisting}
+
+\section {Disable log messages dari Requests library}
+\begin{lstlisting}
+	import logging
+	
+	logging.getLogger("requests").setLevel(logging.WARNING)
+\end{lstlisting}
+
+\section {Convert dict ke kwargs}
+\begin{lstlisting}
+	func(type='Event')
+\end{lstlisting}
+
+\section {Rename banyak file dalam direktori}
+\begin{lstlisting}
+	$ ls
+	cheese_cheese_type.bar  cheese_cheese_type.foo
+	$ python
+	>>> import os
+	>>> for filename in os.listdir("."):
+	...  if filename.startswith("cheese_"):
+	...    os.rename(filename, filename[7:])
+	... 
+	>>> 
+	$ ls
+	cheese_type.bar  cheese_type.foo
+\end{lstlisting}
+
+\section {Convert local time string ke UTC}
+\begin{lstlisting}
+	from datetime import datetime   
+	import pytz
+	
+	local = pytz.timezone("America/Los_Angeles")
+	naive = datetime.strptime("2001-2-3 10:11:12", "%Y-%m-%d %H:%M:%S")
+	local_dt = local.localize(naive, is_dst=None)
+	utc_dt = local_dt.astimezone(pytz.utc)
+\end{lstlisting}
+
+\section {Mencari dan mereplace elemen pada list}
+\begin{lstlisting}
+	>>> a=[1,2,3,1,3,2,1,1]
+	>>> [4 if x==1 else x for x in a]
+	[4, 2, 3, 4, 3, 2, 4, 4]
+\end{lstlisting}
+
+\section {Mencari irisan pada list}
+\begin{lstlisting}
+	>>> a = [1,2,3,4,5]
+	>>> b = [1,3,5,6]
+	>>> list(set(a) & set(b))
+	[1, 3, 5]
+\end{lstlisting}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
